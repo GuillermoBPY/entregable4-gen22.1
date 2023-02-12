@@ -20,3 +20,8 @@
 .animate__zoomOutUp {
   display: grid;
 }
+
+.swal2-styled.swal2-confirm,
+.swal2-styled.swal2-deny {
+  width: auto;
+}

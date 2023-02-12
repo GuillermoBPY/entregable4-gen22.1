@@ -1,0 +1,170 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap");
+
+* {
+  box-sizing: border-box;
+  font-family: "Roboto", sans-serif;
+  color: var(--text-color);
+}
+
+:root {
+  --main-color: #1083d6;
+  --hooverblue: #166299;
+  --title-color: #2a3b47;
+  --text-color: #697477;
+  --light-text-color: #a0a7ac;
+  --border-color: #eff3f5;
+  --container-color: #ffffff;
+  --body-color: #fbfbfe;
+}
+
+.App.darkmode {
+  --main-color: #52a5e0;
+  --hooverblue: #4385b4;
+  --title-color: #eff3f5;
+  --text-color: #c8cdd0;
+  --light-text-color: #a0a7ac;
+  --border-color: #2a3b47;
+  --container-color: #212e36;
+  --body-color: #192229;
+}
+
+.App {
+  background-color: var(--body-color);
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 0;
+  border-bottom: 5px solid var(--border-color);
+}
+
+h1 {
+  margin: 0;
+  font-weight: 700;
+  color: var(--title-color);
+}
+
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+button {
+  border: 1px solid transparent;
+  background-color: var(--main-color);
+  width: 100px;
+  padding: 0.4rem 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: var(--hooverblue);
+}
+
+button:active {
+  background-color: var(--light-text-color);
+}
+
+button span,
+.bx {
+  color: var(--body-color);
+  font-size: 1rem;
+}
+
+.userscard__btn {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.2rem;
+}
+
+.userscard__btn button:nth-child(1) {
+  background-color: #d33;
+}
+
+.userscard__btn button:nth-child(1):hover {
+  background-color: #ae2929;
+}
+
+.userscard__btn button:nth-child(1):active {
+  background-color: rgb(94, 18, 18);
+}
+
+.userform__cancelX {
+  cursor: pointer;
+  border-radius: 50%;
+  display: grid;
+  place-content: center;
+  width: 25px;
+  aspect-ratio: 1;
+  align-self: flex-end;
+}
+
+.userform__cancelX .bx {
+  font-size: 2rem;
+  color: #d33;
+}
+
+.userform__cancelX .bx:hover {
+  color: #ae2929;
+}
+
+.userform__cancelX .bx:active {
+  color: rgb(94, 18, 18);
+}
+
+.userscard__grid {
+  display: grid;
+  place-content: center;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 1rem;
+  padding: 1rem;
+}
+
+.usercard {
+  border: 1px solid var(--light-text-color);
+  border-radius: 1rem;
+  padding: 1rem;
+}
+
+.usercard ul {
+  line-height: 1.5rem;
+}
+
+.usercard ul .bx {
+  color: var(--main-color);
+}
+
+.usersform {
+  border-radius: 1rem;
+  padding: 1rem;
+  width: 350px;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  background-color: var(--body-color);
+  border: 1px solid var(--border-color);
+}
+
+.userform__input {
+  display: grid;
+  grid-template-columns: 100px 1fr;
+  align-items: center;
+}
+
+.userform__input label {
+  color: var(--main-color);
+  font-weight: 500;
+}
+
+.userform__input input {
+  font-size: 0.9rem;
+}
+.userform__btn {
+  align-self: flex-end;
+}

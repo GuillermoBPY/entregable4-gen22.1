@@ -5,13 +5,10 @@ import UsersCard from "./components/UsersCard";
 import "./styles/App.css";
 import Swal from "sweetalert2";
 
-
-
 function App() {
   const [users, setusers] = useState();
   const [updateInfo, setupdateInfo] = useState();
-  const [showForm, setshowForm] = useState();
-const [formAnimation, setformAnimation] = useState()
+  const [formAnimation, setformAnimation] = useState();
   const [defaultValue, setdefaultValue] = useState({
     email: "",
     password: "",
@@ -77,42 +74,47 @@ const [formAnimation, setformAnimation] = useState()
   };
 
   const handleShowForm = () => {
-    setshowForm(true)
-  if(formAnimation === "animate__zoomInDown"){
-    setformAnimation ("animate__zoomOutUp")
-  } else {setformAnimation ("animate__zoomInDown") }
-  
+    if (formAnimation === "animate__zoomInDown") {
+      setformAnimation("animate__zoomOutUp");
+    } else {
+      setformAnimation("animate__zoomInDown");
+    }
   };
 
   useEffect(getAllUsers, []);
 
   return (
     <div className="App">
-      <h1>Hola Programador</h1>
-      <div onClick={handleShowForm}>
-        <i className="bx bx-user-plus"></i>
-        <span>Create</span>
+      <header className="header">
+        <h1>User Manager</h1>
+        <button onClick={handleShowForm}>
+          <i className="bx bx-user-plus"></i>
+          <span>Create</span>
+        </button>
+      </header>
+
+      <UsersForm
+        updateUser={updateUser}
+        createNewUser={createNewUser}
+        updateInfo={updateInfo}
+        defaultValue={defaultValue}
+        users={users}
+        setupdateInfo={setupdateInfo}
+        formAnimation={formAnimation}
+        handleShowForm={handleShowForm}
+      />
+      <div className="userscard__grid">
+        {users &&
+          users.map((user) => (
+            <UsersCard
+              key={user.id}
+              user={user}
+              deleteUser={deleteUser}
+              setupdateInfo={setupdateInfo}
+              handleShowForm={handleShowForm}
+            />
+          ))}
       </div>
-        <UsersForm
-          updateUser={updateUser}
-          createNewUser={createNewUser}
-          updateInfo={updateInfo}
-          defaultValue={defaultValue}
-          users={users}
-          setupdateInfo={setupdateInfo}
-          formAnimation={formAnimation}
-          handleShowForm={handleShowForm}
-        />
-      {users &&
-        users.map((user) => (
-          <UsersCard
-            key={user.id}
-            user={user}
-            deleteUser={deleteUser}
-            setupdateInfo={setupdateInfo}
-            handleShowForm={handleShowForm}
-          />
-        ))}
     </div>
   );
 }

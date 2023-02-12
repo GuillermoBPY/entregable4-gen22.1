@@ -23,23 +23,33 @@ const UsersCard = ({ user, deleteUser, setupdateInfo, handleShowForm }) => {
   };
 
   return (
-    <div>
+    <div className="usercard">
       <ul>
-        <li>{user.id}</li>
-        <li>{user.first_name}</li>
-        <li>{user.last_name}</li>
-        <li>{user.email}</li>
-        <li>{user.password}</li>
-        <li>{user.birthday.split("-").reverse().join("-")}</li>
+        <li>
+          <i className="bx bx-id-card"></i> {user.id}
+        </li>
+        <li>
+          <i className="bx bx-user-circle"></i> {user.first_name}{" "}
+          {user.last_name}
+        </li>
+        <li>
+          <i className="bx bx-envelope"></i> {user.email}
+        </li>
+        <li>
+          <i class="bx bx-cake"></i>{" "}
+          {user.birthday.split("-").reverse().join("-")}
+        </li>
       </ul>
-      <button onClick={handleDelete}>
-        <i className="bx bx-user-minus"></i>
-        <span>Delete</span>
-      </button>
-      <button onClick={handleUpdate}>
-        <i className="bx bx-user-voice"></i>
-        <span>Update</span>
-      </button>
+      <div className="userscard__btn">
+        <button onClick={handleDelete}>
+          <i className="bx bx-user-minus"></i>
+          <span>Delete</span>
+        </button>
+        <button onClick={handleUpdate}>
+          <i className="bx bx-user-voice"></i>
+          <span>Update</span>
+        </button>
+      </div>
     </div>
   );
 };

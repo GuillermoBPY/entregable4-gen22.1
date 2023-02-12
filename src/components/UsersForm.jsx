@@ -3,7 +3,6 @@ import { useForm } from "react-hook-form";
 import Swal from "sweetalert2";
 import "animate.css";
 
-
 const UsersForm = ({
   updateUser,
   createNewUser,
@@ -12,7 +11,7 @@ const UsersForm = ({
   users,
   setupdateInfo,
   formAnimation,
-  handleShowForm
+  handleShowForm,
 }) => {
   const {
     handleSubmit,
@@ -45,7 +44,7 @@ const UsersForm = ({
       }).then((result) => {
         if (result.isConfirmed) {
           createNewUser(data);
-          handleShowForm()
+          handleShowForm();
         } else if (result.isDenied) {
           Swal.fire("User was not created", "", "info");
         }
@@ -56,7 +55,7 @@ const UsersForm = ({
   const handleCancel = () => {
     setupdateInfo();
     reset(defaultValue);
-    handleShowForm()
+    handleShowForm();
   };
 
   const setUpdateform = () => {
@@ -69,12 +68,12 @@ const UsersForm = ({
   useEffect(setUpdateform, [updateInfo, users]);
   return (
     <div className={`usersform__container animate__animated ${formAnimation}`}>
-      <form onSubmit={handleSubmit(submit)}>
-        <span onClick={handleCancel}>
+      <form className="usersform" onSubmit={handleSubmit(submit)}>
+        <span className="userform__cancelX" onClick={handleCancel}>
           <i className="bx bx-x-circle"></i>
         </span>
         {updateInfo && <h4>Id: #{updateInfo.id}</h4>}
-        <div>
+        <div className="userform__input">
           <label htmlFor="firstName">First name</label>
           <input
             {...register("first_name", {
@@ -107,7 +106,7 @@ const UsersForm = ({
             </span>
           )}
         </div>
-        <div>
+        <div className="userform__input">
           <label htmlFor="lastName">Last name</label>
           <input
             {...register("last_name", {
@@ -140,7 +139,7 @@ const UsersForm = ({
             </span>
           )}
         </div>
-        <div>
+        <div className="userform__input">
           <label htmlFor="birthday">Birthday</label>
           <input
             {...register("birthday", {
@@ -159,7 +158,7 @@ const UsersForm = ({
             </span>
           )}
         </div>
-        <div>
+        <div className="userform__input">
           <label htmlFor="email">Email</label>
           <input
             {...register("email", {
@@ -187,7 +186,7 @@ const UsersForm = ({
             </span>
           )}
         </div>
-        <div>
+        <div className="userform__input">
           <label htmlFor="password">Password</label>
           <input
             {...register("password", {
@@ -215,21 +214,21 @@ const UsersForm = ({
             </span>
           )}
         </div>
-        <button>
+        <button className="userform__btn">
           {updateInfo ? (
             <>
               <i className="bx bx-user-check"></i>
-              <span>Update User</span>
+              <span>Update</span>
             </>
           ) : (
             <>
               <i className="bx bx-user-plus"></i>
-              <span>Create User</span>
+              <span>Create</span>
             </>
           )}
         </button>
       </form>
-      </div>
+    </div>
   );
 };
 
