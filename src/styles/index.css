@@ -272,6 +272,13 @@ input::placeholder {
 .swal2-popup,
 .swal2-modal,
 .swal2-show {
-  background-color: var(--container-color);
-  color: var(--text-color);
+  background-color: #ffffff;
+  color: #697477;
+}
+
+body.darkmode .swal2-popup,
+body.darkmode .swal2-modal,
+body.darkmode .swal2-show {
+  background-color: #212e36;
+  color: #c8cdd0;
 }
