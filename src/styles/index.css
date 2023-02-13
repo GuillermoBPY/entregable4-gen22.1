@@ -218,12 +218,12 @@ button span,
   align-self: flex-end;
 }
 
-.filterinput {
+.filterinput__box {
   text-align: center;
   padding-top: 1rem;
 }
 
-.filterinput label {
+.filterinput__box label {
   color: var(--main-color);
   margin-right: 0.5rem;
   font-weight: 500;

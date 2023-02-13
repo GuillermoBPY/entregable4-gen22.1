@@ -25,7 +25,11 @@ function App() {
   const getAllUsers = () => {
     axios
       .get(url)
-      .then((res) => setusers(res.data))
+      .then((res) => {
+        setusers(res.data);
+        setfiltervalue("");
+        document.getElementById("filterinput__box")?.reset();
+      })
       .catch((err) => console.log(err));
   };
 
@@ -127,7 +131,7 @@ function App() {
             </div>
           </header>
           {users && (
-            <div className="filterinput">
+            <form className="filterinput__box" id="filterinput__box">
               <label htmlFor="filterinput">Filter</label>
               <input
                 className="filterinput__text"
@@ -136,7 +140,7 @@ function App() {
                 id="filterinput"
                 placeholder="First Name or Last Name"
               />
-            </div>
+            </form>
           )}
 
           <UsersForm
