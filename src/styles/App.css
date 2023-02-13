@@ -39,17 +39,7 @@ body.darkmode {
   display: grid;
 }
 
-.swal2-styled.swal2-confirm,
-.swal2-styled.swal2-deny {
-  width: auto;
-}
 
-.swal2-popup,
-.swal2-modal,
-.swal2-show {
-  background-color: var(--container-color);
-  color: var(--text-color);
-}
 /* ===== Scrollbar CSS ===== */
 /* Firefox */
 * {
