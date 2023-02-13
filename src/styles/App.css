@@ -2,13 +2,11 @@
   --bgcolor: rgb(0, 0, 0, 0.2);
   --main-color: #1083d6;
   --container-color: #ffffff;
-  --text-color: #697477;
 }
 body.darkmode {
   --bgcolor: rgba(183, 170, 170, 0.2);
   --main-color: #52a5e0;
   --container-color: #212e36;
-  --text-color: #c8cdd0;
 }
 
 .usersform__error {
