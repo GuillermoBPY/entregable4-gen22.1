@@ -87,7 +87,7 @@ function App() {
 
   const handleDarkMode = () => {
     !darkmode ? setdarkmode("darkmode") : setdarkmode(false);
-    document.body.classList.toggle("darkmode")
+    document.body.classList.toggle("darkmode");
   };
 
   const handlefilterInput = (e) => {
