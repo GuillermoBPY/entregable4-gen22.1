@@ -4,12 +4,14 @@ import UsersForm from "./components/UsersForm";
 import UsersCard from "./components/UsersCard";
 import "./styles/App.css";
 import Swal from "sweetalert2";
+import Loading from "./components/Loading";
 
 function App() {
   const [users, setusers] = useState();
   const [updateInfo, setupdateInfo] = useState();
   const [formAnimation, setformAnimation] = useState();
   const [darkmode, setdarkmode] = useState(false);
+  const [isloading, setisloading] = useState(true);
   const [filtervalue, setfiltervalue] = useState("");
   const [defaultValue, setdefaultValue] = useState({
     email: "",
@@ -87,15 +89,24 @@ function App() {
     !darkmode ? setdarkmode("darkmode") : setdarkmode(false);
   };
 
-  useEffect(getAllUsers, []);
-
   const handlefilterInput = (e) => {
     e.preventDefault();
     setfiltervalue(e.target.value.replace(/ /g, "").toLowerCase());
   };
 
+  const handleLoading = () => {
+    setTimeout(() => {
+      if (users) setisloading(false);
+    }, 3000);
+  };
+
+  useEffect(handleLoading, [users]);
+  useEffect(getAllUsers, []);
+
   return (
     <div className={`App ${darkmode}`}>
+      {isloading && <Loading />}
+
       <header className="header">
         <h1>User Manager</h1>
         <div className="header__btn">

@@ -13,7 +13,8 @@
   text-align: center;
 }
 
-.usersform__container {
+.usersform__container,
+.loading__container {
   position: fixed;
   top: 0;
   left: 0;
@@ -27,7 +28,8 @@
 }
 
 .animate__zoomInDown,
-.animate__zoomOutUp {
+.animate__zoomOutUp,
+.loading__container {
   display: grid;
 }
 
