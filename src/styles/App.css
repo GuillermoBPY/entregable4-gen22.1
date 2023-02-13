@@ -1,8 +1,14 @@
 :root {
   --bgcolor: rgb(0, 0, 0, 0.2);
+  --main-color: #1083d6;
+  --container-color: #ffffff;
+  --text-color: #697477;
 }
 .App.darkmode {
   --bgcolor: rgba(183, 170, 170, 0.2);
+  --main-color: #52a5e0;
+  --container-color: #212e36;
+  --text-color: #c8cdd0;
 }
 
 .usersform__error {
@@ -36,4 +42,30 @@
 .swal2-styled.swal2-confirm,
 .swal2-styled.swal2-deny {
   width: auto;
+}
+
+.swal2-popup, .swal2-modal, .swal2-show{
+  background-color: var(--container-color);
+  color: var(--text-color);
+}
+/* ===== Scrollbar CSS ===== */
+/* Firefox */
+* {
+  scrollbar-width: auto;
+  scrollbar-color: var(--main-color) var(--container-color);
+}
+
+/* Chrome, Edge, and Safari */
+*::-webkit-scrollbar {
+  width: 16px;
+}
+
+*::-webkit-scrollbar-track {
+  background: var(--container-color);
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: var(--main-color);
+  border-radius: 10px;
+  border: 3px solid var(--container-color);
 }

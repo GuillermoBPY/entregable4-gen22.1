@@ -19,7 +19,7 @@
   --shadow: rgba(0, 0, 0, 0.35);
 }
 
-.App.darkmode {
+body.darkmode {
   --main-color: #52a5e0;
   --hooverblue: #4385b4;
   --title-color: #eff3f5;
@@ -33,13 +33,14 @@
 
 body {
   margin: 0;
+  background-color: var(--body-color);
 }
 
 .App {
   min-width: 350px;
   background-color: var(--body-color);
   padding: 1rem;
-  height: 100vh;
+  height: 100%;
 }
 
 .header {
@@ -262,3 +263,4 @@ input:active {
 input::placeholder {
   color: var(--light-text-color);
 }
+

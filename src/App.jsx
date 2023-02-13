@@ -87,6 +87,7 @@ function App() {
 
   const handleDarkMode = () => {
     !darkmode ? setdarkmode("darkmode") : setdarkmode(false);
+    document.body.classList.toggle("darkmode")
   };
 
   const handlefilterInput = (e) => {
@@ -108,7 +109,7 @@ function App() {
       {isloading ? (
         <Loading />
       ) : (
-        <div className={`App ${darkmode}`}>
+        <div className="App">
           <header className="header">
             <h1>User Manager</h1>
             <div className="header__btn">
