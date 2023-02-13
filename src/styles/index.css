@@ -1,6 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap");
-@import url('https://fonts.googleapis.com/css2?family=Montserrat+Subrayada:wght@700&display=swap');
-
+@import url("https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700&display=swap");
 * {
   box-sizing: border-box;
   font-family: "Roboto", sans-serif;
@@ -17,7 +16,7 @@
   --border-color: #eff3f5;
   --container-color: #ffffff;
   --body-color: #fbfbfe;
-  --shadow: rgba(255, 255, 255, 0.35);
+  --shadow: rgba(11, 11, 11, 0.555);
 }
 
 body.darkmode {
@@ -42,6 +41,7 @@ body {
   background-color: var(--body-color);
   padding: 1rem;
   height: 100%;
+  margin-top: 120px;
 }
 
 .header {
@@ -55,7 +55,12 @@ body {
   background-size: 250px;
   background-repeat: no-repeat;
   background-color: #033353;
-  border-radius: 10px;
+  position: fixed;
+  width: 100%;
+  left: 0;
+  top: 0;
+  z-index: 10;
+  height: 120px;
 }
 
 .header__btn {
@@ -66,9 +71,8 @@ body {
   align-items: center;
 }
 
-@media (min-width:600px){
-
-  .header__btn{
+@media (min-width: 600px) {
+  .header__btn {
     flex-direction: row-reverse;
   }
 }
@@ -84,10 +88,9 @@ h1 {
   margin: 0;
   font-weight: 700;
   color: var(--title-color);
-  text-shadow: 0 6px 18px var(--shadow);
-  font-family: 'Montserrat Subrayada', sans-serif;
-  letter-spacing: 3PX;
+  letter-spacing: 3px;
   align-self: center;
+  font-family: "Big Shoulders Display", cursive;
 }
 
 ul {
