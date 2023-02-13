@@ -104,68 +104,72 @@ function App() {
   useEffect(getAllUsers, []);
 
   return (
-    <div className={`App ${darkmode}`}>
-      {isloading && <Loading />}
+    <>
+      {isloading ? (
+        <Loading />
+      ) : (
+        <div className={`App ${darkmode}`}>
+          <header className="header">
+            <h1>User Manager</h1>
+            <div className="header__btn">
+              <div onClick={handleDarkMode} className="header__darkmodebtn">
+                {darkmode === "darkmode" ? (
+                  <i className="bx bx-sun"></i>
+                ) : (
+                  <i className="bx bx-moon"></i>
+                )}
+              </div>
+              <button onClick={handleShowForm}>
+                <i className="bx bx-user-plus"></i>
+                <span>Create</span>
+              </button>
+            </div>
+          </header>
+          {users && (
+            <div className="filterinput">
+              <label htmlFor="filterinput">Filter</label>
+              <input
+                className="filterinput__text"
+                onChange={handlefilterInput}
+                type="text"
+                id="filterinput"
+                placeholder="First Name or Last Name"
+              />
+            </div>
+          )}
 
-      <header className="header">
-        <h1>User Manager</h1>
-        <div className="header__btn">
-          <div onClick={handleDarkMode} className="header__darkmodebtn">
-            {darkmode === "darkmode" ? (
-              <i className="bx bx-sun"></i>
-            ) : (
-              <i className="bx bx-moon"></i>
-            )}
-          </div>
-          <button onClick={handleShowForm}>
-            <i className="bx bx-user-plus"></i>
-            <span>Create</span>
-          </button>
-        </div>
-      </header>
-      {users && (
-        <div className="filterinput">
-          <label htmlFor="filterinput">Filter</label>
-          <input
-            className="filterinput__text"
-            onChange={handlefilterInput}
-            type="text"
-            id="filterinput"
-            placeholder="First Name or Last Name"
+          <UsersForm
+            updateUser={updateUser}
+            createNewUser={createNewUser}
+            updateInfo={updateInfo}
+            defaultValue={defaultValue}
+            users={users}
+            setupdateInfo={setupdateInfo}
+            formAnimation={formAnimation}
+            handleShowForm={handleShowForm}
           />
+          <div className="userscard__grid">
+            {users &&
+              users
+                .filter((user) =>
+                  (user.first_name + user.last_name)
+                    .toLowerCase()
+                    .replace(/ /g, "")
+                    .includes(filtervalue)
+                )
+                .map((user) => (
+                  <UsersCard
+                    key={user.id}
+                    user={user}
+                    deleteUser={deleteUser}
+                    setupdateInfo={setupdateInfo}
+                    handleShowForm={handleShowForm}
+                  />
+                ))}
+          </div>
         </div>
       )}
-
-      <UsersForm
-        updateUser={updateUser}
-        createNewUser={createNewUser}
-        updateInfo={updateInfo}
-        defaultValue={defaultValue}
-        users={users}
-        setupdateInfo={setupdateInfo}
-        formAnimation={formAnimation}
-        handleShowForm={handleShowForm}
-      />
-      <div className="userscard__grid">
-        {users &&
-          users
-            .filter((user) =>
-              (user.first_name + user.last_name)
-                .toLowerCase()
-                .replace(/ /g, "")
-                .includes(filtervalue)
-            )
-            .map((user) => (
-              <UsersCard
-                key={user.id}
-                user={user}
-                deleteUser={deleteUser}
-                setupdateInfo={setupdateInfo}
-                handleShowForm={handleShowForm}
-              />
-            ))}
-      </div>
-    </div>
+    </>
   );
 }
 
