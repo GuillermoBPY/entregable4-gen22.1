@@ -4,6 +4,7 @@
   box-sizing: border-box;
   font-family: "Roboto", sans-serif;
   color: var(--text-color);
+  user-select: none;
 }
 
 :root {
@@ -15,6 +16,7 @@
   --border-color: #eff3f5;
   --container-color: #ffffff;
   --body-color: #fbfbfe;
+  --shadow: rgba(0, 0, 0, 0.35);
 }
 
 .App.darkmode {
@@ -26,6 +28,7 @@
   --border-color: #2a3b47;
   --container-color: #212e36;
   --body-color: #193041;
+  --shadow: rgba(255, 255, 255, 0.35);
 }
 
 body {
@@ -64,6 +67,7 @@ h1 {
   margin: 0;
   font-weight: 700;
   color: var(--title-color);
+  text-shadow: 0 6px 18px var(--shadow);
 }
 
 ul {
@@ -101,6 +105,8 @@ button span,
   font-size: 1.2rem;
 }
 .userscard__btn {
+  border-top: 2px solid var(--text-color);
+  padding-top: 0.5rem;
   margin-top: 1.5rem;
   display: flex;
   justify-content: flex-end;
@@ -154,10 +160,16 @@ button span,
 
 .usercard {
   width: 350px;
-  border: 1px solid var(--light-text-color);
-  border-radius: 1rem;
+  border: 2px solid var(--light-text-color);
+  border-radius: 0.5rem;
   padding: 1rem;
   margin: 0 auto;
+  transition: transform 0.5s, box-shadow 0.5s;
+}
+
+.usercard:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 18px var(--shadow);
 }
 
 .usercard ul {
