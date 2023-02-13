@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Montserrat+Subrayada:wght@700&display=swap');
 
 * {
   box-sizing: border-box;
@@ -10,13 +11,13 @@
 :root {
   --main-color: #1083d6;
   --hooverblue: #166299;
-  --title-color: #2a3b47;
+  --title-color: #eff3f5;
   --text-color: #697477;
   --light-text-color: #a0a7ac;
   --border-color: #eff3f5;
   --container-color: #ffffff;
   --body-color: #fbfbfe;
-  --shadow: rgba(0, 0, 0, 0.35);
+  --shadow: rgba(255, 255, 255, 0.35);
 }
 
 body.darkmode {
@@ -37,7 +38,7 @@ body {
 }
 
 .App {
-  min-width: 350px;
+  min-width: 370px;
   background-color: var(--body-color);
   padding: 1rem;
   height: 100%;
@@ -47,15 +48,29 @@ body {
   gap: 1rem;
   display: flex;
   justify-content: space-between;
-  padding: 1rem 0;
+  padding: 1rem 0.5rem;
   border-bottom: 10px double var(--light-text-color);
+  background-image: url(../../img/loading.gif);
+  background-position: center;
+  background-size: 250px;
+  background-repeat: no-repeat;
+  background-color: #033353;
+  border-radius: 10px;
 }
 
 .header__btn {
   display: flex;
-  flex-direction: row-reverse;
+  flex-direction: column;
+  justify-content: center;
   gap: 1rem;
   align-items: center;
+}
+
+@media (min-width:600px){
+
+  .header__btn{
+    flex-direction: row-reverse;
+  }
 }
 
 .header__btn .bx-sun,
@@ -70,6 +85,9 @@ h1 {
   font-weight: 700;
   color: var(--title-color);
   text-shadow: 0 6px 18px var(--shadow);
+  font-family: 'Montserrat Subrayada', sans-serif;
+  letter-spacing: 3PX;
+  align-self: center;
 }
 
 ul {
