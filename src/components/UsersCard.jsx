@@ -36,7 +36,7 @@ const UsersCard = ({ user, deleteUser, setupdateInfo, handleShowForm }) => {
           <i className="bx bx-envelope"></i> {user.email}
         </li>
         <li>
-          <i class="bx bx-cake"></i>{" "}
+          <i className="bx bx-cake"></i>{" "}
           {user.birthday.split("-").reverse().join("-")}
         </li>
       </ul>

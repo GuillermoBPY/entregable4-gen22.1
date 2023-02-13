@@ -25,19 +25,39 @@
   --light-text-color: #a0a7ac;
   --border-color: #2a3b47;
   --container-color: #212e36;
-  --body-color: #192229;
+  --body-color: #193041;
+}
+
+body {
+  margin: 0;
 }
 
 .App {
+  min-width: 350px;
   background-color: var(--body-color);
+  padding: 1rem;
 }
 
 .header {
+  gap: 1rem;
   display: flex;
   justify-content: space-between;
-  align-items: center;
   padding: 1rem 0;
-  border-bottom: 5px solid var(--border-color);
+  border-bottom: 10px double var(--light-text-color);
+}
+
+.header__btn {
+  display: flex;
+  flex-direction: row-reverse;
+  gap: 1rem;
+  align-items: center;
+}
+
+.header__btn .bx-sun,
+.header__btn .bx-moon {
+  cursor: pointer;
+  color: var(--main-color);
+  font-size: 2rem;
 }
 
 h1 {
@@ -61,6 +81,7 @@ button {
   align-items: center;
   gap: 0.5rem;
   cursor: pointer;
+  border-radius: 0.5rem;
 }
 
 button:hover {
@@ -74,10 +95,13 @@ button:active {
 button span,
 .bx {
   color: var(--body-color);
-  font-size: 1rem;
+  font-size: 0.9rem;
 }
-
+.bx {
+  font-size: 1.2rem;
+}
 .userscard__btn {
+  margin-top: 1.5rem;
   display: flex;
   justify-content: flex-end;
   gap: 0.2rem;
@@ -107,7 +131,7 @@ button span,
 
 .userform__cancelX .bx {
   font-size: 2rem;
-  color: #d33;
+  color: #dd3333;
 }
 
 .userform__cancelX .bx:hover {
@@ -115,10 +139,12 @@ button span,
 }
 
 .userform__cancelX .bx:active {
-  color: rgb(94, 18, 18);
+  color: #5e1212;
 }
 
 .userscard__grid {
+  margin: 0 auto;
+  max-width: 1200px;
   display: grid;
   place-content: center;
   grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
@@ -127,9 +153,11 @@ button span,
 }
 
 .usercard {
+  width: 350px;
   border: 1px solid var(--light-text-color);
   border-radius: 1rem;
   padding: 1rem;
+  margin: 0 auto;
 }
 
 .usercard ul {
@@ -139,7 +167,11 @@ button span,
 .usercard ul .bx {
   color: var(--main-color);
 }
-
+.usercard ul li {
+  display: flex;
+  gap: 0.3rem;
+  align-items: center;
+}
 .usersform {
   border-radius: 1rem;
   padding: 1rem;
@@ -148,7 +180,7 @@ button span,
   flex-direction: column;
   gap: 1rem;
   background-color: var(--body-color);
-  border: 1px solid var(--border-color);
+  border: 2px solid var(--border-color);
 }
 
 .userform__input {
@@ -167,4 +199,48 @@ button span,
 }
 .userform__btn {
   align-self: flex-end;
+}
+
+.filterinput {
+  text-align: center;
+  padding-top: 1rem;
+}
+
+.filterinput label {
+  color: var(--main-color);
+  margin-right: 0.5rem;
+  font-weight: 500;
+}
+
+.filterinput__text {
+  display: inline-block;
+  border: 0;
+  border-radius: 26px;
+  box-shadow: inset 0 0 0 2px var(--light-text-color);
+  background: var(--body-color);
+  padding-left: 10px;
+  width: 80%;
+  max-width: 1000px;
+  height: 35px;
+  vertical-align: middle;
+  white-space: normal;
+  font-size: inherit;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+.filterinput__text:hover {
+  box-shadow: inset 0 0 0 2px var(--text-color);
+}
+
+.filterinput__text:focus,
+.filterinput__text:active {
+  outline: 0;
+  box-shadow: inset 0 0 0 2px var(--main-color);
+  background: var(--body-color);
+}
+
+.filterinput__text::placeholder {
+  color: var(--light-text-color);
 }

@@ -9,6 +9,8 @@ function App() {
   const [users, setusers] = useState();
   const [updateInfo, setupdateInfo] = useState();
   const [formAnimation, setformAnimation] = useState();
+  const [darkmode, setdarkmode] = useState(false);
+  const [filtervalue, setfiltervalue] = useState("");
   const [defaultValue, setdefaultValue] = useState({
     email: "",
     password: "",
@@ -81,17 +83,47 @@ function App() {
     }
   };
 
+  const handleDarkMode = () => {
+    !darkmode ? setdarkmode("darkmode") : setdarkmode(false);
+  };
+
   useEffect(getAllUsers, []);
 
+  const handlefilterInput = (e) => {
+    e.preventDefault();
+    setfiltervalue(e.target.value.replace(/ /g, "").toLowerCase());
+  };
+
   return (
-    <div className="App">
+    <div className={`App ${darkmode}`}>
       <header className="header">
         <h1>User Manager</h1>
-        <button onClick={handleShowForm}>
-          <i className="bx bx-user-plus"></i>
-          <span>Create</span>
-        </button>
+        <div className="header__btn">
+          <div onClick={handleDarkMode} className="header__darkmodebtn">
+            {darkmode === "darkmode" ? (
+              <i className="bx bx-sun"></i>
+            ) : (
+              <i className="bx bx-moon"></i>
+            )}
+          </div>
+          <button onClick={handleShowForm}>
+            <i className="bx bx-user-plus"></i>
+            <span>Create</span>
+          </button>
+        </div>
       </header>
+      {users && (
+        <div className="filterinput">
+          <label htmlFor="filterinput">Filter</label>
+          <input
+            className="filterinput__text"
+            onChange={handlefilterInput}
+            type="text"
+            id="filterinput"
+            placeholder="First Name or Last Name"
+          />
+        </div>
+      )}
 
       <UsersForm
         updateUser={updateUser}
@@ -105,15 +137,22 @@ function App() {
       />
       <div className="userscard__grid">
         {users &&
-          users.map((user) => (
-            <UsersCard
-              key={user.id}
-              user={user}
-              deleteUser={deleteUser}
-              setupdateInfo={setupdateInfo}
-              handleShowForm={handleShowForm}
-            />
-          ))}
+          users
+            .filter((user) =>
+              (user.first_name + user.last_name)
+                .toLowerCase()
+                .replace(/ /g, "")
+                .includes(filtervalue)
+            )
+            .map((user) => (
+              <UsersCard
+                key={user.id}
+                user={user}
+                deleteUser={deleteUser}
+                setupdateInfo={setupdateInfo}
+                handleShowForm={handleShowForm}
+              />
+            ))}
       </div>
     </div>
   );

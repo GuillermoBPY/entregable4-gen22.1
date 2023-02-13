@@ -72,7 +72,9 @@ const UsersForm = ({
         <span className="userform__cancelX" onClick={handleCancel}>
           <i className="bx bx-x-circle"></i>
         </span>
-        {updateInfo && <h4>Id: #{updateInfo.id}</h4>}
+        <div className="userform__input">
+          {updateInfo && <label>Id: #{updateInfo.id}</label>}
+        </div>
         <div className="userform__input">
           <label htmlFor="firstName">First name</label>
           <input
@@ -84,7 +86,7 @@ const UsersForm = ({
               pattern: {
                 value: /[A-Za-z]/,
                 message:
-                  "Please enter only alphabetical letters without spaces",
+                  "Please enter only alphabetical letters without spaces.",
               },
               maxLength: {
                 value: 25,
@@ -205,7 +207,7 @@ const UsersForm = ({
             })}
             type="password"
             id="password"
-            placeholder="password"
+            placeholder="Password"
           />
           {errors.password && (
             <span className="usersform__error">
