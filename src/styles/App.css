@@ -4,7 +4,7 @@
   --container-color: #ffffff;
   --text-color: #697477;
 }
-.App.darkmode {
+body.darkmode {
   --bgcolor: rgba(183, 170, 170, 0.2);
   --main-color: #52a5e0;
   --container-color: #212e36;
