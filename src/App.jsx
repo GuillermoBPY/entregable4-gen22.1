@@ -96,7 +96,7 @@ function App() {
 
   const handlefilterInput = (e) => {
     e.preventDefault();
-    setfiltervalue(e.target.value.replace(/ /g, "").toLowerCase());
+    setfiltervalue(e.target.value.trim().replace(/ /g, "").toLowerCase());
   };
 
   const handleLoading = () => {
