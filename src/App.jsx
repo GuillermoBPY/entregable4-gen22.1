@@ -162,7 +162,7 @@ function App() {
                 />
               </form>
               <div className="usercounter">
-                Showing {printUsers.length} out of {users.length} total users
+                {printUsers.length === 0  || users.length === 0 ? "There are no users to display" : `Showing ${printUsers.length} out of ${users.length} total users`}
               </div>
             </>
           )}
