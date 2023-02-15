@@ -105,6 +105,26 @@ function App() {
     }, 3000);
   };
 
+
+let printUsers = users && ( users
+    .filter((user) =>
+      (user.first_name + user.last_name)
+        .toLowerCase()
+        .replace(/ /g, "")
+        .includes(filtervalue)
+    )
+    .map((user) => (
+      <UsersCard
+        key={user.id}
+        user={user}
+        deleteUser={deleteUser}
+        setupdateInfo={setupdateInfo}
+        handleShowForm={handleShowForm}
+      />
+    )))
+
+
+
   useEffect(handleLoading, [users]);
   useEffect(getAllUsers, []);
 
@@ -131,6 +151,7 @@ function App() {
             </div>
           </header>
           {users && (
+            <>
             <form className="filterinput__box" id="filterinput__box">
               <label htmlFor="filterinput">Filter</label>
               <input
@@ -141,6 +162,8 @@ function App() {
                 placeholder="First Name or Last Name"
               />
             </form>
+            <div className="usercounter">Showing {printUsers.length} out of {users.length} total users</div>
+            </>
           )}
 
           <UsersForm
@@ -154,23 +177,7 @@ function App() {
             handleShowForm={handleShowForm}
           />
           <div className="userscard__grid">
-            {users &&
-              users
-                .filter((user) =>
-                  (user.first_name + user.last_name)
-                    .toLowerCase()
-                    .replace(/ /g, "")
-                    .includes(filtervalue)
-                )
-                .map((user) => (
-                  <UsersCard
-                    key={user.id}
-                    user={user}
-                    deleteUser={deleteUser}
-                    setupdateInfo={setupdateInfo}
-                    handleShowForm={handleShowForm}
-                  />
-                ))}
+            {printUsers}
           </div>
         </div>
       )}

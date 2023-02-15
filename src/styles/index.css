@@ -171,6 +171,12 @@ button span,
   color: #5e1212;
 }
 
+.usercounter{
+  font-weight: 500;
+  padding: 1rem 0;
+  text-align: center;
+}
+
 .userscard__grid {
   margin: 0 auto;
   max-width: 1200px;
