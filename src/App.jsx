@@ -105,25 +105,24 @@ function App() {
     }, 3000);
   };
 
-
-let printUsers = users && ( users
-    .filter((user) =>
-      (user.first_name + user.last_name)
-        .toLowerCase()
-        .replace(/ /g, "")
-        .includes(filtervalue)
-    )
-    .map((user) => (
-      <UsersCard
-        key={user.id}
-        user={user}
-        deleteUser={deleteUser}
-        setupdateInfo={setupdateInfo}
-        handleShowForm={handleShowForm}
-      />
-    )))
-
-
+  let printUsers =
+    users &&
+    users
+      .filter((user) =>
+        (user.first_name + user.last_name)
+          .toLowerCase()
+          .replace(/ /g, "")
+          .includes(filtervalue)
+      )
+      .map((user) => (
+        <UsersCard
+          key={user.id}
+          user={user}
+          deleteUser={deleteUser}
+          setupdateInfo={setupdateInfo}
+          handleShowForm={handleShowForm}
+        />
+      ));
 
   useEffect(handleLoading, [users]);
   useEffect(getAllUsers, []);
@@ -152,17 +151,19 @@ let printUsers = users && ( users
           </header>
           {users && (
             <>
-            <form className="filterinput__box" id="filterinput__box">
-              <label htmlFor="filterinput">Filter</label>
-              <input
-                className="filterinput__text"
-                onChange={handlefilterInput}
-                type="text"
-                id="filterinput"
-                placeholder="First Name or Last Name"
-              />
-            </form>
-            <div className="usercounter">Showing {printUsers.length} out of {users.length} total users</div>
+              <form className="filterinput__box" id="filterinput__box">
+                <label htmlFor="filterinput">Filter</label>
+                <input
+                  className="filterinput__text"
+                  onChange={handlefilterInput}
+                  type="text"
+                  id="filterinput"
+                  placeholder="First Name or Last Name"
+                />
+              </form>
+              <div className="usercounter">
+                Showing {printUsers.length} out of {users.length} total users
+              </div>
             </>
           )}
 
@@ -176,9 +177,7 @@ let printUsers = users && ( users
             formAnimation={formAnimation}
             handleShowForm={handleShowForm}
           />
-          <div className="userscard__grid">
-            {printUsers}
-          </div>
+          <div className="userscard__grid">{printUsers}</div>
         </div>
       )}
     </>
