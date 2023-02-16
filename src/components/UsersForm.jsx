@@ -197,8 +197,8 @@ const UsersForm = ({
                 message: "This field is required.",
               },
               maxLength: {
-                value: 128,
-                message: "The maximum length is 128 characters.",
+                value: 25,
+                message: "The maximum length is 25 characters.",
               },
               minLength: {
                 value: 6,
